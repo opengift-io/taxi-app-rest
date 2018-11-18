@@ -1,0 +1,6 @@
+# -*- coding:utf-8 -*-
+# замените user, password, ds049945.mongolab.com, example на ваши данные доступа к БД.
+MONGO_URI = "mongodb://user:pass@ds024778.mlab.com:24778/taxi"
+
+ADMIN_USERNAME = 'admin'
+ADMIN_PASSWORD = 'admin'
