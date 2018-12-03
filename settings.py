@@ -95,6 +95,13 @@ DOMAIN = {
             },
             'cost': {
                 'type': 'integer'
+            },
+            'children_qty': {
+                'type': 'integer'
+            },
+            'comment': {
+                'type': 'string',
+                'maxlength': 1000,
             }
         }
     },
