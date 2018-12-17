@@ -77,6 +77,26 @@ DOMAIN = {
                 'maxlength': 400,
                 'required': True,
             },
+            'location_from_lot': {
+                'type': 'float',
+                'required': True,
+            },
+            'location_to_lat': {
+                'type': 'float',
+                'required': True,
+            },
+            'location_from_lon': {
+                'type': 'float',
+                'required': True,
+            },
+            'location_to_lon': {
+                'type': 'float',
+                'required': True,
+            },
+            'distance': {
+                'type': 'float',
+                'required': False,
+            },
             'customer': {
                 'type': 'objectid',
                 'data_relation': {
@@ -152,3 +172,5 @@ DOMAIN = {
         }
     }
 }
+
+MONGO_QUERY_BLACKLIST = ['$where']
