@@ -77,7 +77,7 @@ DOMAIN = {
                 'maxlength': 400,
                 'required': True,
             },
-            'location_from_lot': {
+            'location_from_lat': {
                 'type': 'float',
                 'required': True,
             },
@@ -85,11 +85,11 @@ DOMAIN = {
                 'type': 'float',
                 'required': True,
             },
-            'location_from_lon': {
+            'location_from_lng': {
                 'type': 'float',
                 'required': True,
             },
-            'location_to_lon': {
+            'location_to_lng': {
                 'type': 'float',
                 'required': True,
             },
@@ -122,6 +122,11 @@ DOMAIN = {
             'comment': {
                 'type': 'string',
                 'maxlength': 1000,
+            },
+            'status': {
+                'type': 'string',
+                'maxlength': 30,
+                'default': 'new'
             }
         }
     },
