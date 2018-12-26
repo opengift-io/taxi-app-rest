@@ -36,6 +36,18 @@ DOMAIN = {
                 'maxlength': 200,
                 'required': True,
             },
+            'avatar': {
+                'type': 'media'
+            },
+            'licence_front': {
+                'type': 'media'
+            },
+            'licence_back': {
+                'type': 'media'
+            },
+            'car_ownership_doc': {
+                'type': 'media'
+            },
             'password': {
                 'type': 'string',
                 'minlength': 1,
@@ -174,6 +186,63 @@ DOMAIN = {
                     'embeddable': True
                 }
             },
+        }
+    },
+    'car_brands': {
+        'schema': {
+            'title': {
+                'type': 'string',
+                'minlength': 1,
+                'maxlength': 400,
+                'required': True,
+            },
+            'code': {
+                'type': 'string',
+                'minlength': 1,
+                'maxlength': 50,
+                'required': True,
+            },
+            'logo': {
+                'type': 'media'
+            }
+        }
+    },
+    'car_models': {
+        'schema': {
+            'title': {
+                'type': 'string',
+                'minlength': 1,
+                'maxlength': 400,
+                'required': True,
+            },
+            'code': {
+                'type': 'string',
+                'minlength': 1,
+                'maxlength': 50,
+                'required': True,
+            },
+            'picture': {
+                'type': 'media'
+            }
+        }
+    },
+    'car_colors': {
+        'schema': {
+            'title': {
+                'type': 'string',
+                'minlength': 1,
+                'maxlength': 400,
+                'required': True,
+            },
+            'code': {
+                'type': 'string',
+                'minlength': 1,
+                'maxlength': 50,
+                'required': True,
+            },
+            'picture': {
+                'type': 'media'
+            }
         }
     }
 }
