@@ -36,15 +36,54 @@ DOMAIN = {
                 'maxlength': 200,
                 'required': True,
             },
+            'avatar': {
+                'type': 'media'
+            },
+            'licence_front': {
+                'type': 'media'
+            },
+            'licence_back': {
+                'type': 'media'
+            },
+            'car_ownership_doc': {
+                'type': 'media'
+            },
+            'driver_licence_number': {
+                'type': 'string',
+                'maxlength': 20,
+            },
+            'driver_licence_end_date': {
+                'type': 'datetime'
+            },
+            'driver_ownership_doc_number': {
+                'type': 'string',
+                'maxlength': 20,
+            },
+            'driver_car_licence_plate_number': {
+                'type': 'string',
+                'maxlength': 20,
+            },
+            'driver_car_model': {
+                'type': 'objectid',
+                'data_relation': {
+                    'resource': 'car_models',
+                    'field': '_id',
+                    'embeddable': True
+                }
+            },
+            'driver_car_color': {
+                'type': 'objectid',
+                'data_relation': {
+                    'resource': 'car_colors',
+                    'field': '_id',
+                    'embeddable': True
+                }
+            },
             'password': {
                 'type': 'string',
                 'minlength': 1,
                 'maxlength': 200,
                 'required': True,
-            },
-            'role': {
-                'type': 'list', # тип: список
-                'allowed': ["driver", "contributor"], # разрешаем использовать значения: "author", "contributor"
             },
             'location': {
                 'type': 'dict', # тип: словарь
@@ -59,7 +98,35 @@ DOMAIN = {
             },
             'is_driver': {
                 'type': 'boolean',
-                'default': True
+                'default': False
+            }
+        }
+    },
+    'driving_offers': {
+        'schema': {
+            'address_to': {
+                'type': 'string',
+                'minlength': 1,
+                'maxlength': 400
+            },
+            'amount': {
+                'type': 'float'
+            },
+            'driving': {
+                'type': 'objectid',
+                'data_relation': {
+                    'resource': 'drivings',
+                    'field': '_id',
+                    'embeddable': True
+                }
+            },
+            'confirmed_by_customer': {
+                'type': 'boolean',
+                'default': False
+            },
+            'confirmed_by_driver': {
+                'type': 'boolean',
+                'default': False
             }
         }
     },
@@ -174,6 +241,63 @@ DOMAIN = {
                     'embeddable': True
                 }
             },
+        }
+    },
+    'car_brands': {
+        'schema': {
+            'title': {
+                'type': 'string',
+                'minlength': 1,
+                'maxlength': 400,
+                'required': True,
+            },
+            'code': {
+                'type': 'string',
+                'minlength': 1,
+                'maxlength': 50,
+                'required': True,
+            },
+            'logo': {
+                'type': 'media'
+            }
+        }
+    },
+    'car_models': {
+        'schema': {
+            'title': {
+                'type': 'string',
+                'minlength': 1,
+                'maxlength': 400,
+                'required': True,
+            },
+            'code': {
+                'type': 'string',
+                'minlength': 1,
+                'maxlength': 50,
+                'required': True,
+            },
+            'picture': {
+                'type': 'media'
+            }
+        }
+    },
+    'car_colors': {
+        'schema': {
+            'title': {
+                'type': 'string',
+                'minlength': 1,
+                'maxlength': 400,
+                'required': True,
+            },
+            'code': {
+                'type': 'string',
+                'minlength': 1,
+                'maxlength': 50,
+                'required': True,
+            },
+            'picture': {
+                'type': 'media'
+            }
         }
     }
 }
