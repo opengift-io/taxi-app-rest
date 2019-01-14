@@ -16,7 +16,7 @@ def before_insert(resource_name, documents):
     if resource_name == 'drivings':
         for doc in documents:
             if doc['distance']:
-                doc['cost'] = 6 * (float(doc['distance']) / 5.0)
+                doc['cost'] = 6 * (float(doc['distance']) / 5000.0)
 
 
 app = Eve(auth=MyBasicAuth)
