@@ -3,7 +3,7 @@ from settings_local import *
 
 RESOURCE_METHODS = ['GET', 'POST', 'DELETE']
 ITEM_METHODS = ['GET', 'PATCH', 'PUT', 'DELETE']
-
+DATE_FORMAT = "%Y-%d-%m %H:%M:%S"
 DOMAIN = {
     # Описываем ресурс `/users`
     'users': {
@@ -183,6 +183,9 @@ DOMAIN = {
             'cost': {
                 'type': 'integer'
             },
+            'duration': {
+                'type': 'integer'
+            },
             'children_qty': {
                 'type': 'integer'
             },
@@ -278,7 +281,15 @@ DOMAIN = {
             },
             'picture': {
                 'type': 'media'
-            }
+            },
+            'brand': {
+                'type': 'objectid',
+                'data_relation': {
+                    'resource': 'car_brands',
+                    'field': '_id',
+                    'embeddable': True
+                }
+            },
         }
     },
     'car_colors': {
