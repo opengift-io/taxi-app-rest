@@ -53,7 +53,7 @@ DOMAIN = {
                 'maxlength': 20,
             },
             'driver_licence_end_date': {
-                'type': 'datetime'
+                'type': 'string'
             },
             'driver_ownership_doc_number': {
                 'type': 'string',
@@ -94,7 +94,7 @@ DOMAIN = {
                 },
             },
             'born': {
-                'type': 'datetime',
+                'type': 'string',
             },
             'is_driver': {
                 'type': 'boolean',
@@ -120,6 +120,22 @@ DOMAIN = {
                     'embeddable': True
                 }
             },
+            'driver': {
+                'type': 'objectid',
+                'data_relation': {
+                    'resource': 'users',
+                    'field': '_id',
+                    'embeddable': True
+                }
+            },
+            'customer': {
+                'type': 'objectid',
+                'data_relation': {
+                    'resource': 'users',
+                    'field': '_id',
+                    'embeddable': True
+                }
+            },
             'confirmed_by_customer': {
                 'type': 'boolean',
                 'default': False
@@ -127,7 +143,13 @@ DOMAIN = {
             'confirmed_by_driver': {
                 'type': 'boolean',
                 'default': False
-            }
+            },
+            'location_to_lat': {
+                'type': 'float'
+            },
+            'location_to_lng': {
+                'type': 'float'
+            },
         }
     },
     'drivings': {
@@ -159,6 +181,12 @@ DOMAIN = {
             'location_to_lng': {
                 'type': 'float',
                 'required': True,
+            },
+            'driver_location_lat': {
+                'type': 'float',
+            },
+            'driver_location_lng': {
+                'type': 'float',
             },
             'distance': {
                 'type': 'float',
