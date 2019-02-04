@@ -228,6 +228,30 @@ DOMAIN = {
             }
         }
     },
+    'destinations': {
+        'driving': {
+                'type': 'objectid',
+                'data_relation': {
+                    'resource': 'drivings',
+                    'field': '_id',
+                    'embeddable': True
+                }
+            },
+        'schema': {
+            'address': {
+                'type': 'string',
+                'maxlength': 1000,
+            },
+        'lat': {
+                'type': 'string',
+                'maxlength': 100,
+            },
+        'lng': {
+                'type': 'string',
+                'maxlength': 100,
+            },
+        }
+    },
     'countries': {
         'schema': {
             'title': {
