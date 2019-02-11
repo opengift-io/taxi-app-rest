@@ -86,7 +86,7 @@ DOMAIN = {
                 'required': True,
             },
             'location': {
-                'type': 'dict', # тип: словарь
+                'type': 'dict',  # тип: словарь
                 # описываем "схему" словаря
                 'schema': {
                     'address': {'type': 'string'},
@@ -182,6 +182,9 @@ DOMAIN = {
                 'type': 'float',
                 'required': True,
             },
+            'eta_driver_time': {
+                'type': 'integer'
+            },
             'driver_location_lat': {
                 'type': 'float',
             },
@@ -221,6 +224,10 @@ DOMAIN = {
                 'type': 'string',
                 'maxlength': 1000,
             },
+            'destinations': {
+                'type': 'string',
+                'maxlength': 1500,
+            },
             'status': {
                 'type': 'string',
                 'maxlength': 30,
@@ -229,27 +236,26 @@ DOMAIN = {
         }
     },
     'destinations': {
-        'driving': {
-                'type': 'objectid',
-                'data_relation': {
-                    'resource': 'drivings',
-                    'field': '_id',
-                    'embeddable': True
-                }
-            },
         'schema': {
-            'address': {
-                'type': 'string',
-                'maxlength': 1000,
-            },
-        'lat': {
-                'type': 'string',
-                'maxlength': 100,
-            },
-        'lng': {
-                'type': 'string',
-                'maxlength': 100,
-            },
+                'driving': {
+                    'type': 'objectid',
+                    'data_relation': {
+                        'resource': 'drivings',
+                        'field': '_id',
+                        'embeddable': True
+                    }
+                },
+                'address': {
+                    'type': 'string',
+                    'maxlength': 1000,
+                },
+                'lat': {
+                    'type': 'float'
+                },
+                'lng': {
+                    'type': 'float'
+
+                }
         }
     },
     'countries': {

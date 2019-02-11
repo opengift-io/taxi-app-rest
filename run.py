@@ -5,6 +5,8 @@ from eve import Eve
 from eve.auth import BasicAuth
 from settings import ADMIN_USERNAME, ADMIN_PASSWORD
 from eve.auth import requires_auth
+from eve.methods.post import post_internal
+import json
 
 class MyBasicAuth(BasicAuth):
     def check_auth(self, username, password, allowed_roles, resource,
@@ -14,6 +16,20 @@ class MyBasicAuth(BasicAuth):
 def get_distance_price(distance):
     return 100 * (float(distance) / 1000.0)
 
+
+def after_insert(resource_name, request, payload):
+    if resource_name == 'drivings':
+        for doc in [request.get_data()]:
+            doc = json.loads(doc)
+            if doc['destinations']:
+                destinations = json.loads(doc['destinations'])
+
+                for dest in destinations:
+                    dest['driving'] = json.loads(payload.get_data())['_id']
+
+                    print post_internal('destinations', payl=dest)
+
+                del doc['destinations']
 
 def before_insert(resource_name, documents):
 
@@ -30,6 +46,7 @@ def before_insert(resource_name, documents):
 
 app = Eve(auth=MyBasicAuth)
 app.on_insert += before_insert
+app.on_post_POST += after_insert
 
 
 @app.route('/get_price')
