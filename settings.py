@@ -96,6 +96,9 @@ DOMAIN = {
             'born': {
                 'type': 'string',
             },
+            'rating': {
+                'type': 'float',
+            },
             'is_driver': {
                 'type': 'boolean',
                 'default': False
@@ -368,7 +371,31 @@ DOMAIN = {
                 'type': 'media'
             }
         }
-    }
+    },
+    'rating': {
+        'schema': {
+            'driver': {
+                'type': 'objectid',
+                'data_relation': {
+                    'resource': 'users',
+                    'field': '_id',
+                    'embeddable': True
+                }
+            },
+            'customer': {
+                'type': 'objectid',
+                'data_relation': {
+                    'resource': 'users',
+                    'field': '_id',
+                    'embeddable': True
+                }
+            },
+            'rating': {
+                'type': 'string',
+                'maxlength': 1000,
+            },
+        }
+    },
 }
 
 MONGO_QUERY_BLACKLIST = ['$where']
