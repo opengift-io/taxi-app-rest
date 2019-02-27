@@ -1,3 +1,3 @@
 #!/bin/bash
-cd /home/taxi-rest
+cd /home/taxi/www
 python run.py

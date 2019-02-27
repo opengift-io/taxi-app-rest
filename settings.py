@@ -391,6 +391,9 @@ DOMAIN = {
                 }
             },
             'rating': {
+                'type': 'float'
+            },
+            'comment': {
                 'type': 'string',
                 'maxlength': 1000,
             },
